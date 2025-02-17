@@ -52,7 +52,7 @@ JOIN CITIES C ON C.CITY=A.CITYID
 JOIN TOWNS T ON T.ID=A.TOWNID
 WHERE CITY='ÝSTANBUL'
 GROUP BY C.CITY,T.TOWN
---TEKÝL MÜÞTERÝ SAYISINI GETÝRMEK ÝSTÝYORSAK COUNT (DISTINCT KULLANMALIYIZ. 
+--TEKÝL MÜÞTERÝ SAYISINI GETÝRMEK ÝSTÝYORSAK COUNT (DISTINCT) KULLANMALIYIZ. 
 --Gerçek veri seti örnek:
 --2022 yýlý mart ayýnda 20 ile 30 yaþ arasý müþterilerin verdiði sipariþleri listeleyiniz.
 -- yas almak için datediff kullanýlýyor.
@@ -588,8 +588,6 @@ SELECT DISTINCT I1.CATEGORY1 KATEGORI ,
 	ORDER BY SUM(OD.LINETOTAL) DESC
 ) TUTAR
 FROM ITEMS I1 
---04.08.24 Pazar:11. örnekteyim 
---27.09.24 Yeniden Baþladým.
 --örnek-11: Ýkiden fazla adresi olan kullanýcýlarý subquery ile getiriniz.Anlamý, subquery yi where þartýnda kullanma
 SELECT U.NAMESURNAME KULLANICI,
 (SELECT COUNT(*) FROM ADDRESS WHERE USERID=U.ID) ADRES_SAYISI
